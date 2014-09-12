@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.catalina.com/account"
+	elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:hj="http://hyperjaxb3.jvnet.org/ejb/schemas/customizations"
+	xmlns:acct="http://www.catalina.com/account">
+	<xs:complexType name="Client">
+		<xs:annotation>
+			<xs:appinfo>
+				<hj:embeddable />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="clientName" type="xs:string"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:int"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Contract">
+		<xs:annotation>
+			<xs:appinfo>
+				<hj:embeddable />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="clientId" type="xs:int"></xs:element>
+			<xs:element name="createDate" type="xs:dateTime"></xs:element>
+			<xs:element name="effectiveDate" type="xs:dateTime"></xs:element>
+			<xs:element name="expirationDate" type="xs:dateTime"></xs:element>
+			<xs:element name="contractTerms" type="xs:string"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Account">
+		<xs:sequence>
+			<xs:element name="client" type="acct:Client" minOccurs="1"
+				maxOccurs="1"></xs:element>
+			<xs:element name="contract" type="acct:Contract"
+				minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:int"></xs:attribute>
+	</xs:complexType>
+	<xs:element name="client" type="acct:Client"></xs:element>
+	<xs:element name="account" type="acct:Account"></xs:element>
+</xs:schema>

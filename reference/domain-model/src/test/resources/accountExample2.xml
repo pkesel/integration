@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<acct:account id="1" xmlns:acct="http://www.catalina.com/account"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.catalina.com/account ../../main/resources/account.xsd ">
+	<acct:client id="1">
+		<acct:clientName>Client 1</acct:clientName>
+	</acct:client>
+	<acct:contract id="1">
+		<acct:clientId>1</acct:clientId>
+		<acct:createDate>2014-03-10T12:00:00</acct:createDate>
+		<acct:effectiveDate>2014-04-01T12:00:00</acct:effectiveDate>
+		<acct:expirationDate>2014-05-31T12:00:00</acct:expirationDate>
+		<acct:contractTerms>Some contract terms about payment, execution,
+			guarantee, liability, yada, yada, etc.</acct:contractTerms>
+	</acct:contract>
+	<acct:contract id="2">
+		<acct:clientId>1</acct:clientId>
+		<acct:createDate>2014-09-10T12:00:00</acct:createDate>
+		<acct:effectiveDate>2014-10-01T12:00:00</acct:effectiveDate>
+		<acct:expirationDate>2014-12-31T12:00:00</acct:expirationDate>
+		<acct:contractTerms>Some contract terms about payment, execution,
+			guarantee, liability, yada, yada, etc.</acct:contractTerms>
+	</acct:contract>
+</acct:account>

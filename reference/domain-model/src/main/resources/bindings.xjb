@@ -1,0 +1,13 @@
+<jaxb:bindings version="1.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<jaxb:bindings schemaLocation="account.xsd" node="/account:schema">
+		<jaxb:globalBindings localScoping="toplevel">
+			<jaxb:serializable />
+		</jaxb:globalBindings>
+	</jaxb:bindings>
+	<jaxb:bindings schemaLocation="media.xsd" node="/media:schema">
+		<jaxb:globalBindings localScoping="toplevel">
+			<jaxb:serializable />
+		</jaxb:globalBindings>
+	</jaxb:bindings>
+</jaxb:bindings>

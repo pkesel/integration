@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.catalina.com/media"
+	elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:md="http://www.catalina.com/media">
+	<xs:complexType name="Program">
+		<xs:annotation>
+			<xs:appinfo>
+				<xs:globalBindings generateIsSetMethod="true"
+					localScoping="toplevel">
+					<xs:serializable />
+				</xs:globalBindings>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="clientId" type="xs:int" minOccurs="1"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="programName" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="executionStartDate" type="xs:date"
+				minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="executionEndDate" type="xs:date"
+				minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="objective" type="xs:string" minOccurs="0"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="promotion" type="md:Promotion"
+				minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:int"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Promotion">
+		<xs:sequence>
+			<xs:element name="label" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="audience" type="xs:string" minOccurs="1"
+				maxOccurs="unbounded">
+			</xs:element>
+			<xs:element name="distributionGeography" type="xs:string"
+				minOccurs="1" maxOccurs="unbounded">
+			</xs:element>
+			<xs:element name="reward" type="md:PromotionReward"
+				minOccurs="0" maxOccurs="unbounded"></xs:element>
+			<xs:element name="presentation" type="xs:string"
+				minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:int"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="PromotionReward">
+		<xs:sequence>
+			<xs:element name="rewardVehicle" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="currency"></xs:enumeration>
+						<xs:enumeration value="loyalty"></xs:enumeration>
+						<xs:enumeration value="product"></xs:enumeration>
+						<xs:enumeration value="voucher"></xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="rewardQuantity" type="xs:int"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MediaPresentation">
+		<xs:sequence>
+			<xs:element name="presentationFormat" minOccurs="1"
+				maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="colorPrint"></xs:enumeration>
+						<xs:enumeration value="monoPrint"></xs:enumeration>
+						<xs:enumeration value="webBanner"></xs:enumeration>
+						<xs:enumeration value="webAddRotator"></xs:enumeration>
+						<xs:enumeration value="mobileFull"></xs:enumeration>
+						<xs:enumeration value="mobileAppEmbedded"></xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="presentationAsset" type="md:MediaPresentationAsset"
+				minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MediaPresentationAsset">
+		<xs:sequence>
+			<xs:element name="assetIndex" type="xs:int"></xs:element>
+			<xs:element name="asssetURI" type="xs:anyURI"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
